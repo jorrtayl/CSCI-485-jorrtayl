@@ -1,0 +1,2 @@
+gcc -pthread -Wall -Wextra -g -o PThreads PThreads.c
+./PThreads

@@ -1,0 +1,2 @@
+gcc -pthread -Wall -Wextra -g -o PThreads_mutex PThreads_mutex.c
+./PThreads_mutex
