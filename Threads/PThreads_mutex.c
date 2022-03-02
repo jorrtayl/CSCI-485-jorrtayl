@@ -4,6 +4,8 @@
 
 pthread_mutex_t lock;
 
+int counter;
+
 void *threadFunction(void *arg);
 
 int main (int argc, char *argv[]) {
@@ -34,6 +36,8 @@ int main (int argc, char *argv[]) {
         pthread_join(newThread[i], NULL);
     }
 
+    printf("Counter: %d\n", counter);
+
     pthread_mutex_destroy(&lock);
 
     return 0;
@@ -47,6 +51,7 @@ void *threadFunction(void *arg) {
 
     for (int i = 0; i < *iterations; i++) {
         printf("Hello World. Greetings from thread %d\n", i);
+        counter++;
     }
 
     pthread_mutex_unlock(&lock);

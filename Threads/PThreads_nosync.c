@@ -4,6 +4,8 @@
 
 void *threadFunction(void *arg);
 
+int counter;
+
 int main (int argc, char *argv[]) {
     int threadCounts = 10;
     int iterations = 10000;
@@ -31,6 +33,8 @@ int main (int argc, char *argv[]) {
         pthread_create(&newThread[i], NULL, threadFunction, &iterations);
     }
 
+    printf("Counter: %d\n", counter);
+
     return 0;
 }
 
@@ -40,6 +44,7 @@ void *threadFunction(void *arg) {
 
     for (int i = 0; i < *iterations; i++) {
         printf("Hello World. Greetings from thread %d\n", i);
+        counter++;
     }
 
     return NULL;
